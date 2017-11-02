@@ -26,7 +26,9 @@ public class Animal {
         int n = rand.nextInt(100)+1;
         return (n > 98) ? -1: 1;
     }
-
+    // update Direction
+    // if animal reach edge, it will go back
+    // otherwise direction will change randomly
     public void updateDirection(){
         if(position[x] >= 900 || position[x] < 0) {
             position[xi] *= -1;
@@ -43,14 +45,19 @@ public class Animal {
         }
     }
 
+    // update animal position
     public void updatePosition() {
-//        position[x] = position[x] + position[xi];
-//        position[y] = position[y] + position[yi];
           position[x] += position[xi];
           position[y] += position[yi];
 
     }
 
+
+    // after caught
+    public void afterCaught(){
+    }
+
+    //method collection of all update
     public void move(){
         updateDirection();
         updatePosition();
